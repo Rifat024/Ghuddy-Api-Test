@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Micro Finance Module Suite">
+    <test name="Micro Finance Area Test">
+        <classes>
+            <class name="net.ghuddy.loadTesting.PushSmartCollectionData"/>
+            <class name="net.ghuddy.api.rest.test.miapi.get.GetClaimInfoTest"/>
+            <class name="net.ghuddy.api.rest.test.scapir.get.TransactionsLoanTest"/>
+            <class name="net.ghuddy.api.rest.test.scapir.get.TransactionsModifiedLoanTest"/>
+            <class name="net.ghuddy.api.rest.test.scapir.get.GoodLoansTest"/>
+            <class name="net.ghuddy.api.rest.test.scapir.get.SpsInfoTest"/>
+            <class name="net.ghuddy.api.rest.test.scapiw.post.StoreCollectionInfoTest"/>
+        </classes>
+    </test>
+</suite>

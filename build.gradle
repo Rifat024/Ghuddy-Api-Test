@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+}
+
+group 'brac-erpapitestautomation'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'org.testng:testng:7.3.0'
+    testCompile 'com.thedeanda:lorem:2.1'
+    testCompile 'io.rest-assured:rest-assured:4.3.1'
+    testCompile 'com.fasterxml.jackson.core:jackson-databind:2.11.3'
+    testCompile 'com.opencsv:opencsv:5.3'
+    testCompile 'org.apache.commons:commons-configuration2:2.7'
+    testCompile 'org.postgresql:postgresql:42.2.20'
+    testCompile 'com.google.code.gson:gson:2.8.6'
+    testCompile 'org.json:json:20210307'
+    testCompile 'org.jsoup:jsoup:1.14.3'
+    // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+    testCompile group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.2'
+
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testImplementation 'org.testng:testng:6.14.3'
+
+
+
+}
+
+test {
+    // enable TestNG support (default is JUnit)
+    useTestNG()
+}
+
+test {
+    useTestNG() {
+        if (project.hasProperty('testng.suites')) {
+            project.property('testng.suites').toString().split(',').each { suite ->
+                suites 'src/test/resources/' + suite + '-suite.xml'
+            }
+        }
+
+        if (project.hasProperty('testng.parallel')) {
+            parallel project.property('testng.parallel')
+        }
+        if (project.hasProperty('testng.threadCount')) {
+            threadCount project.property('testng.threadCount') as int
+        }
+        if (project.hasProperty('testng.includeGroups')) {
+            includeGroups project.property('testng.includeGroups')
+        }
+        if (project.hasProperty('testng.excludeGroups')) {
+            excludeGroups project.property('testng.excludeGroups')
+        }
+    }
+}
