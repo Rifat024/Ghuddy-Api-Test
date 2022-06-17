@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'brac-erpapitestautomation'
+group 'ghuddy-api-test'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
