@@ -21,6 +21,14 @@ public abstract class BaseUserServiceTest {
                 .addHeader("Content-Type", "application/json")
                 .build();
     }
+
+    public RequestSpecification requestSpecificationForJsonHeader() {
+        return new RequestSpecBuilder()
+                //.addHeader("X-AUTHORIZATION", accessToken)
+                //.addHeader("Authorization", "Bearer " + getAccessToken())
+                .addHeader("Content-Type", "application/json")
+                .build();
+    }
     protected String getImageUrl() {
         return "https://dummyimage.com/200x200&text=" + LoremIpsum.getInstance().getTitle(1);
     }

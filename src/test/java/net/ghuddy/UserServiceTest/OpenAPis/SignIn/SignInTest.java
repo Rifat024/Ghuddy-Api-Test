@@ -1,4 +1,4 @@
-package net.ghuddy.UserServiceTest.OpenAPis.post;
+package net.ghuddy.UserServiceTest.OpenAPis.SignIn;
 
 import net.ghuddy.UserServiceTest.OpenAPis.BaseOpenApiTest;
 import net.ghuddy.UserServiceTest.pojoClass.SignInData;
@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 
 public class SignInTest extends BaseOpenApiTest {
     @Test(enabled = true, description = "Sign in test using valid data")
-    void signInTest() {
+    void signInTestWithExistingValue() {
         given()
                 .spec(requestSpecificationForJsonHeader())
                 .body(new SignInData("123456", "+880", "1725991536", "1234"))

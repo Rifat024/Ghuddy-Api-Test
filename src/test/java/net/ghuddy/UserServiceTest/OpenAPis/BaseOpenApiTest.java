@@ -6,11 +6,5 @@ import net.ghuddy.UserServiceTest.BaseUserServiceTest;
 
 public abstract class BaseOpenApiTest extends BaseUserServiceTest {
 
-    public RequestSpecification requestSpecificationForJsonHeader() {
-        return new RequestSpecBuilder()
-                //.addHeader("X-AUTHORIZATION", accessToken)
-                //.addHeader("Authorization", "Bearer " + getAccessToken())
-                .addHeader("Content-Type", "application/json")
-                .build();
-    }
+
 }
